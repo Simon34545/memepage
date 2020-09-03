@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Why you're gay.</title>
+	</head>
+	<body>
+		<audio id="a">
+			<source src="yougay.ogg" type="audio/ogg">
+			Your browser does not support the audio element.
+		</audio>
+		<image visible="false" id="b" src="stickbug.gif" width="178" height="180"></image>
+		<image visible="false" id="c" src="stickmin.gif" width="180" height="180"></image>
+		<image visible="false" id="d" src="_rickbug.gif"></image>
+		<script>
+			document.getElementById("b").style.visibility = "hidden"
+			document.getElementById("c").style.visibility = "hidden"
+			document.getElementById("d").style.visibility = "hidden"
+			function play() {
+				document.getElementById('a').play()
+				document.getElementById("b").style.visibility = "visible"
+				document.getElementById("c").style.visibility = "visible"
+				document.getElementById("d").style.visibility = "visible"
+			}
+		</script>
+		<button onclick="setTimeout(play, 1000); this.parentNode.removeChild(this);">Click to find out why you are gay!</button>
+	</body>
+</html>
