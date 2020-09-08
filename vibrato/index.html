@@ -1,0 +1,37 @@
+<!--DOCTYPE html5-->
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+    <title>Vibrato effect/filter created using the Web Audio API</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i" rel="stylesheet"/>
+	<link href="styles.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <hr>
+    <h2>Vibrato effect/filter created using the Web Audio API</h2>
+    <hr>
+    <input type="url" placeholder="Try another song! (URL)"/>
+    <br>
+    <button onclick="document.querySelectorAll('button')[1].onclick=e=>go(this,document.querySelector('input').value);">Load</button>
+    <hr>
+    <img src="https://images.videolan.org/images/icons-VLC/vlc.svg"/>
+    <br>
+    WebVLC
+    <br>
+    <progress min="0" max="0"></progress>
+    <br>
+    <div>
+      <span style="float:left;">--:--</span>
+      <span>&mdash;</span>
+      <span style="float:right;">--:--</span>
+    </div>
+    <br>
+    <button onclick="go(this,'https://snatch.glitch.me/watch?v=Tz6OUIjtM6E',1);">Play</button>
+    <hr>
+    <input type="checkbox"/>randomize playback rate (between 0.5 and 1.5)
+    <hr>
+	<script src="script.js"></script>
+  </body>
+</html>
