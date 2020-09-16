@@ -82,7 +82,7 @@ function initializeUI() {
   });
 }
 
-function requestPermissions() {
+async function requestPermissions() {
   Notification.requestPermission(function(status) {
     console.log(status);
   });
