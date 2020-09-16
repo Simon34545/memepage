@@ -82,13 +82,13 @@ function initializeUI() {
   });
 }
 
-async function requestPermissions() {
+function requestPermissions() {
   Notification.requestPermission(function(status) {
     console.log(status);
   });
 }
 
-function updateBtn() {
+async function updateBtn() {
   if (Notification.permission === 'denied') {
     await requestPermissions();
     if (Notification.permission === 'denied') {
