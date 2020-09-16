@@ -17,8 +17,7 @@ self.addEventListener('notificationclick', function(event) {
 
   event.notification.close();
 
-  event.waitUntil(function() {
+  event.waitUntil(
     clients.openWindow('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
-    self.push();
-  });
+  );
 });
