@@ -40,6 +40,20 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
   pushButton.textContent = 'Push Not Supported';
 }
 
+function displayNotification(t, b, i, ba) {
+  if (Notification.permission == 'granted') {
+    navigator.serviceWorker.getRegistration().then(function(reg) {
+      const title = t;
+      const options = {
+         body: b,
+         icon: i,
+         badge: ba
+      };
+      reg.showNotification(title, options);
+    });
+  }
+}
+
 function initializeUI() {
   pushButton.addEventListener('click', function() {
     pushButton.disabled = true;
@@ -59,6 +73,7 @@ function initializeUI() {
 
     if (isSubscribed) {
       console.log('User IS subscribed.');
+      displayNotification('nEvEr gonna givE you up', 'nEvEr gonna lEt you down', 'memepage/download.jpg', 'memepage/download.jpg');
     } else {
       console.log('User is NOT subscribed.');
     }
@@ -77,7 +92,7 @@ function updateBtn() {
   if (Notification.permission === 'denied') {
     await requestPermissions();
     if (Notification.permission === 'denied') {
-      pushButton.textContent = 'Push Messaging Blocked.';
+      pushButton.textContent = 'you are gay (notifications disabled)';
       pushButton.disabled = true;
       updateSubscriptionOnServer(null);
      return;
@@ -85,16 +100,16 @@ function updateBtn() {
       updateBtn();
       return;
     };
-    pushButton.textContent = 'Push Messaging Blocked.';
+    pushButton.textContent = 'you are gay (notifications disabled)';
     pushButton.disabled = true;
     updateSubscriptionOnServer(null);
     return;
   }
 
   if (isSubscribed) {
-    pushButton.textContent = 'Disable Push Messaging';
+    pushButton.textContent = 'Click to be gay';
   } else {
-    pushButton.textContent = 'Enable Push Messaging';
+    pushButton.textContent = 'Click to not be gay';
   }
 
   pushButton.disabled = false;
