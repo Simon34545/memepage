@@ -18,6 +18,6 @@ self.addEventListener('notificationclick', function(event) {
   event.notification.close();
 
   event.waitUntil(
-    clients.openWindow('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
+    clients.openWindow('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
   );
 });
