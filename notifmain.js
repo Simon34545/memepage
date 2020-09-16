@@ -66,8 +66,16 @@ function initializeUI() {
     updateBtn();
   });
 }
+
+function requestPermissions() {
+  Notification.requestPermission(function(status) {
+    console.log(status);
+  });
+}
+
 function updateBtn() {
   if (Notification.permission === 'denied') {
+    requestPermissions();
     pushButton.textContent = 'Push Messaging Blocked.';
     pushButton.disabled = true;
     updateSubscriptionOnServer(null);
