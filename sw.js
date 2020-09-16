@@ -13,7 +13,7 @@ function send(event) {
 }
 
 
-self.addEventListener('push', send(event);
+self.addEventListener('push', send(event));
 self.addEventListener('notificationclick', function(event) {
   console.log('[Service Worker] Notification click Received.');
 
