@@ -116,6 +116,17 @@ async function updateBtn() {
 }
 function updateSubscriptionOnServer(subscription) {
   // TODO: Send subscription to application server
+  
+  //const subscriptionJson = document.querySelector('.js-subscription-json');
+  //const subscriptionDetails =
+  //  document.querySelector('.js-subscription-details');
+//
+ // if (subscription) {
+  //  subscriptionJson.textContent = JSON.stringify(subscription);
+  //  subscriptionDetails.classList.remove('is-invisible');
+  //} else {
+   // subscriptionDetails.classList.add('is-invisible');
+ // }
 }
 
 function subscribeUser() {
