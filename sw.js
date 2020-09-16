@@ -1,6 +1,6 @@
 self.addEventListener('push', function(event) {
   console.log('[Service Worker] Push Received.');
-  // console.log(`[Service Worker] Push had this data: "${event.data.text()}"`);
+  console.log(`[Service Worker] Push had this data: "${event.data.text()}"`);
 
   const title = 'nEvEr gonna givE you up';
   const options = {
@@ -17,8 +17,8 @@ self.addEventListener('notificationclick', function(event) {
 
   event.notification.close();
 
-  event.waitUntil(
-    clients.openWindow('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
+  event.waitUntil(function() {
+    clients.openWindow('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
     self.push();
-  );
+  });
 });
