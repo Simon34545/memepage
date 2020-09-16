@@ -75,7 +75,16 @@ function requestPermissions() {
 
 function updateBtn() {
   if (Notification.permission === 'denied') {
-    requestPermissions();
+    await requestPermissions();
+    if (Notification.permission === 'denied') {
+      pushButton.textContent = 'Push Messaging Blocked.';
+      pushButton.disabled = true;
+      updateSubscriptionOnServer(null);
+     return;
+    } else {
+      updateBtn();
+      return;
+    };
     pushButton.textContent = 'Push Messaging Blocked.';
     pushButton.disabled = true;
     updateSubscriptionOnServer(null);
