@@ -41,10 +41,21 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
 }
 
 function initializeUI() {
+  pushButton.addEventListener('click', function() {
+    pushButton.disabled = true;
+    if (isSubscribed) {
+      // TODO: Unsubscribe user
+    } else {
+      subscribeUser();
+    }
+  });
+
   // Set the initial subscription value
   swRegistration.pushManager.getSubscription()
   .then(function(subscription) {
     isSubscribed = !(subscription === null);
+
+    updateSubscriptionOnServer(subscription);
 
     if (isSubscribed) {
       console.log('User IS subscribed.');
@@ -55,7 +66,6 @@ function initializeUI() {
     updateBtn();
   });
 }
-
 function updateBtn() {
   if (isSubscribed) {
     pushButton.textContent = 'Disable Push Messaging';
@@ -64,4 +74,24 @@ function updateBtn() {
   }
 
   pushButton.disabled = false;
+}
+function subscribeUser() {
+  const applicationServerKey = urlB64ToUint8Array(applicationServerPublicKey);
+  swRegistration.pushManager.subscribe({
+    userVisibleOnly: true,
+    applicationServerKey: applicationServerKey
+  })
+  .then(function(subscription) {
+    console.log('User is subscribed.');
+
+    updateSubscriptionOnServer(subscription);
+
+    isSubscribed = true;
+
+    updateBtn();
+  })
+  .catch(function(err) {
+    console.log('Failed to subscribe the user: ', err);
+    updateBtn();
+  });
 }
