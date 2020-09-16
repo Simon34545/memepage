@@ -73,7 +73,7 @@ function initializeUI() {
 
     if (isSubscribed) {
       console.log('User IS subscribed.');
-      displayNotification('nEvEr gonna givE you up', 'nEvEr gonna lEt you down', 'memepage/download.jpg', 'memepage/download.jpg');
+      displayNotification('nEvEr gonna givE you up', 'nEvEr gonna lEt you down', '/download.jpg', '/download.jpg');
     } else {
       console.log('User is NOT subscribed.');
     }
