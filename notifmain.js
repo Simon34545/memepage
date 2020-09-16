@@ -44,10 +44,10 @@ function initializeUI() {
   pushButton.addEventListener('click', function() {
     pushButton.disabled = true;
     if (isSubscribed) {
-      // TODO: Unsubscribe user
-    } else {
-      subscribeUser();
-    }
+      unsubscribeUser();
+     } else {
+     subscribeUser();
+     }
   });
 
   // Set the initial subscription value
