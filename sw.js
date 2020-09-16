@@ -1,12 +1,12 @@
 self.addEventListener('push', function(event) {
   console.log('[Service Worker] Push Received.');
-  console.log(`[Service Worker] Push had this data: "${event.data.text()}"`);
+  // console.log(`[Service Worker] Push had this data: "${event.data.text()}"`);
 
-  const title = 'Push Codelab';
+  const title = 'nEvEr gonna givE you up';
   const options = {
-    body: 'nEvEr gonna givE you up',
-    icon: 'memepage/favicon.ico',
-    badge: 'memepage/favicon.ico'
+    body: 'nEvEr gonna lEt you down',
+    icon: 'memepage/download.jpg',
+    badge: 'memepage/download.jpg'
   };
 
   event.waitUntil(self.registration.showNotification(title, options));
@@ -19,5 +19,6 @@ self.addEventListener('notificationclick', function(event) {
 
   event.waitUntil(
     clients.openWindow('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
+    self.push();
   );
 });
