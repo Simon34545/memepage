@@ -4,6 +4,7 @@ function sendMessage() {
   var xhr = new XMLHttpRequest();
   xhr.open("POST", 'https://webhook.site/e27be79c-e981-4e9f-8541-dd5f4bbeb89d', true);
   xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.setRequestHeader('Access-Control-Allow-Origin', true);
   xhr.send(JSON.stringify({name: document.getElementById("name").value, message: document.getElementById("message").value}));
 };
 
