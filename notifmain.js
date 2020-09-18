@@ -1,5 +1,15 @@
 'use strict';
 
+function sendMessage(n, m) {
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", 'https://webhook.site/e27be79c-e981-4e9f-8541-dd5f4bbeb89d', true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.send(JSON.stringify({
+    name: n,
+    message: m
+  }));
+};
+
 const applicationServerPublicKey = 'BHfwpkbB7Cq-Nw6QtXgNIITnntnaNFr-8JFU1sZ-t6oBWU7aDfo9OkYEK1YwMwGOwpVW77-0dK36c1qss56tTHU';
 
 const pushButton = document.getElementById('nbutton');
