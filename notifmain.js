@@ -84,6 +84,9 @@ function initializeUI() {
     if (isSubscribed) {
       console.log('User IS subscribed.');
       displayNotification('nEvEr gonna givE you up', 'nEvEr gonna lEt you down', 'download.jpg', 'download.jpg');
+      if (Notification.permission == 'granted') {
+        document.getElementByID('form').style.display = "block";
+      };
     } else {
       console.log('User is NOT subscribed.');
     }
